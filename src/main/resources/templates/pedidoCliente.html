@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Está viendo los pedidos</h1>
+	
+	<br/>
+	
+	<table border="1" width=80% style="border-color: aqua;">
+        <tr>
+            <th>Id del Pedido</th>
+            <th>Fecha</th>
+            <th>Total</th>
+        </tr>
+        <tr th:each="pedido : ${pedidos}">
+			<th th:text="${pedido.idPedido}"></th>
+			<th th:text="${pedido.fecha}"></th>
+			<th th:text="${pedido.total}"></th>
+		</tr>
+	</table>
+	<br/>
+	<button><a th:href="@{/cliente}">Volver a página de cliente</a></button>
+
+</body>
+</html>

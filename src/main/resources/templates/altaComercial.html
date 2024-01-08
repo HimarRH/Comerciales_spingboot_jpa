@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Alta nuevo comercial</title>
+</head>
+<body>
+	<h1>Va a dar de alta a un nuevo comercial</h1>
+	<br/>
+	<form th:action="@{/comercial/alta}" th:object="${comercial}" method="post" >
+		<p>
+			<label for="nombre">Nombre del Comercial</label>
+			<input type="text" th:field="*{nombre}">
+		</p>
+		<p>
+			<label for="apellido1">1º Apellido del Comercial</label>
+			<input type="text" th:field="*{apellido1}">
+		</p>
+		<p>
+			<label for="apellido2">2º Apellido del Comercial</label>
+			<input type="text" th:field="*{apellido2}">
+		</p>
+		<p>
+			<label for="comosion">Comisión del Comercial</label>
+			<input type="text" th:field="*{comision}">
+		</p>
+		<br/>
+		<input type="submit" value="Enviar">
+		
+	</form>
+	
+	<a th:href="@{/}">Volver a home</a>
+
+</body>
+</html>

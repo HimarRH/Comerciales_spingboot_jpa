@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Pedidos</title>
+</head>
+<body>
+	
+	<h1>Se encuentra en la página de los pedidos</h1>
+	<h3 th:text="${mensaje}"></h3>
+	<br/>
+	<div>
+		<button><a th:href="@{/}">Principal</a></button> 
+		<button><a th:href="@{/cliente}">Clientes</a></button>
+	</div>
+	<br/>
+	<button><a th:href="@{/pedido/alta}">Alta nuevo Pedido</a></button>
+	<table border="1" width=80% style="border-color: aqua;">
+		<tr>
+			<th>idPedido</th>
+			<th>Total</th>
+			<th>Fecha</th>	
+			<th>Ver detalle</th>
+			<th>Eliminar</th>
+			<th>Modificar</th>
+		</tr>
+		<tr th:each="pedido: ${pedidos}">
+			<td th:text="${pedido.idPedido}"></td>
+			<td th:text="${pedido.total}"></td>
+			<td th:text="${pedido.fecha}"></td> 
+			<td><a th:href="@{/pedido/verDetalle/{id}(id=${pedido.idPedido})}">Ver Detalle</a> </td>
+			<td><a th:href="@{/pedido/eliminar/{id}(id=${pedido.idPedido})}">Eliminar</a></td>
+			<td><a th:href="@{/pedido/modificar/{id}(id=${pedido.idPedido})}">Modificar</a></td>
+		</tr>
+	</table>
+</body>
+</html>

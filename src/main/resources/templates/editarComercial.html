@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Va a modificar los datos de <span th:text="${comercial.nombre}"></span></h1>
+	<br/>
+	<form th:action="@{/comercial/modificar/{id}(id=${comercial.idComercial})}" th:object="${comercial}" method="post">
+		<p>
+			<label for="nombre">Modifica el nombre del Comercial</label>
+			<input type="text" th:field="*{nombre}">
+		</p>
+		<p>
+			<label for="nombre">Modifica el 1º apellido del Comercial</label>
+			<input type="text" th:field="*{apellido1}">
+		</p>
+		<p>
+			<label for="nombre">Modifica el 2º apellido del Comercial</label>
+			<input type="text" th:field="*{apellido2}">
+		</p>
+		<p>
+			<label for="nombre">Modifica la comisión del Comercial</label>
+			<input type="text" th:field="*{comision}">
+		</p>
+		<br/>
+		<input type="submit" value="Enviar">
+		
+	</form>
+	<br/>
+	
+	<button><a th:href="@{/}">Volver a la home</a></button>
+	
+	
+
+</body>
+</html>

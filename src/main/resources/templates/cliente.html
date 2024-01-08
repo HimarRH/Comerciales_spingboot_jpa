@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h1>Se encuentra en la página de los clientes</h1>
+	<h3 th:text="${mensaje}"></h3>
+	<br/>
+	<div>
+		<button><a th:href="@{/}">Principal</a></button> 
+		<button><a th:href="@{/pedido}">Pedidos</a></button>
+	</div>
+	<br/>
+	<button><a th:href="@{/cliente/alta}">Alta nuevo cliente</a></button>
+	<table border="1" width=80% style="border-color: aqua;">
+		<tr>
+			<th>Nombre</th>
+			<th>1º Apellido</th>
+			<th>2º Apellido</th>
+			<th>Ver detalle</th>
+			<th>Eliminar</th>
+			<th>MOdificar</th>
+			<th>Ver pedidos del Cliente</th>
+		</tr>
+		<tr th:each="cliente: ${clientes}">
+			<td th:text="${cliente.nombre}"></td>
+			<td th:text="${cliente.apellido1}"></td>
+			<td th:text="${cliente.apellido2}"></td>
+			<td><a th:href="@{/cliente/verDetalle/{id}(id=${cliente.idCliente})}">Ver Detalle</a> </td>
+			<td><a th:href="@{/cliente/eliminar/{id}(id=${cliente.idCliente})}">Eliminar</a></td>
+			<td><a th:href="@{/cliente/modificar/{id}(id=${cliente.idCliente})}">Modificar</a></td>
+			<td><a th:href="@{/pedido/porCliente/{id}(id=${cliente.idCliente})}"> Ver pedidos</a></td>
+		</tr>
+	</table>
+</body>
+</html>

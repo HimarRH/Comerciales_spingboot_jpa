@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Alta nuevo cliente</title>
+</head>
+<body>
+	<h1>Va a dar de alta a un nuevo cliente</h1>
+	<br/>
+	<form th:action="@{/pedido/alta}" th:object="${pedido}" method="post" >
+		<p>
+			<label for="nombre">Total del pedido</label>
+			<input type="text" th:field="*{total}">
+		</p>
+		<p>
+			<label for="apellido1">Fecha del pedido</label>
+			<input type="date" th:field="*{fecha}">
+		</p>
+		<p>
+			<label for="comercial">Nombre del Comercial</label>
+			<select th:field="*{comercial.idComercial}">
+				<option th:each="comercial : ${comerciales}" th:value="${comercial.idComercial}" th:text="${comercial.nombre}"></option>
+			</select>
+		</p>
+		<p>
+			<label for="cliente">Nombre del Comercial</label>
+			<select th:field="*{cliente.idCliente}">
+				<option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+			</select>
+		</p>
+		<br/>
+		<input type="submit" value="Enviar">
+		
+	</form>
+	
+	<a th:href="@{/}">Volver a home</a>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Va a modificar los datos de <span th:text="${pedido.idPedido}"></span></h1>
+	<br/>
+	<form th:action="@{/pedido/modificar/{id}(id=${pedido.idPedido})}" th:object="${pedido}" method="post">
+		<p>
+			<label for="total">Modifica el total del pedido</label>
+			<input type="text" th:field="*{total}">
+		</p>
+		<p>
+			<label for="fecha">Modifica la fecha del pedido</label>
+			<input type="date" th:field="*{fecha}">
+		</p>
+		<p>
+			<label for="comercial">Elige un comercial</label>
+			<select th:field="*{comercial.idComercial}">
+				<option th:each="comercial: ${comerciales}" th:value="${comercial.idComercial}" th:text="${comercial.nombre}"></option>
+			</select>
+			
+		</p>
+		<p>
+			<label for="cliente">Elige el cliente</label>
+			<select th:field="*{cliente.idCliente}">
+				<option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option> 
+			</select>
+		</p>
+		<br/>
+		<input type="submit" value="Enviar">
+		
+	</form>
+	<br/>
+	
+	<button><a th:href="@{/}">Volver a la home</a></button>
+	
+	
+
+</body>
+</html>
